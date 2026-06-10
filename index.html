@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>江苏初二物理暑假自学计划</title>
+  <style>
+    :root {
+      --ink: #18212f;
+      --muted: #5b6575;
+      --line: #d8dee8;
+      --paper: #fbfcfe;
+      --band: #eef4fb;
+      --accent: #1d6fb8;
+      --accent-soft: #e6f1fb;
+      --ok: #247a51;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background: #f4f6f9;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+
+    header {
+      padding: 28px 30px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 32px 0 14px;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 860px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .card ul {
+      margin: 8px 0 0;
+      padding-left: 20px;
+    }
+
+    .note {
+      margin-top: 16px;
+      padding: 14px 16px;
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      border-radius: 6px;
+      color: #203850;
+    }
+
+    .routine {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin: 14px 0 24px;
+    }
+
+    .step {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 92px;
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 940px;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th:last-child,
+    td:last-child {
+      border-right: 0;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      background: #dfeaf5;
+      color: #17283a;
+      z-index: 1;
+    }
+
+    tbody tr.weekend {
+      background: #f8fafc;
+    }
+
+    tbody tr.rest {
+      background: #f3f7f1;
+    }
+
+    .date {
+      white-space: nowrap;
+      font-weight: 700;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--band);
+      color: #30445b;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .check {
+      width: 46px;
+      text-align: center;
+      color: var(--ok);
+      font-weight: 700;
+    }
+
+    .links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .source {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .print-tip {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 860px) {
+      main {
+        padding: 18px 12px 40px;
+      }
+
+      header {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .cards,
+      .routine,
+      .links {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      main {
+        max-width: none;
+        padding: 0;
+      }
+
+      header,
+      .card,
+      .step,
+      .table-wrap,
+      .source {
+        border-color: #aaa;
+        box-shadow: none;
+      }
+
+      thead th {
+        position: static;
+      }
+
+      a {
+        color: #000;
+        text-decoration: none;
+      }
+
+      .print-tip {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>江苏初二物理暑假自学计划</h1>
+      <p class="subtitle">适合马上升初二、学校使用苏科版、暑假跟 B 站“于总”自学的孩子。计划按 2026 年 7 月 1 日到 8 月 18 日设计，共 49 天；如果实际放假时间不同，整体顺延即可。</p>
+      <div class="note">
+        核心原则：苏科版课本定学习顺序，于总视频负责讲懂，同步练习负责落地。不要按人教版合集顺序一路刷。
+      </div>
+      <div class="note">
+        如果 B 站链接在内置浏览器里打不开，通常不是本地 HTML 的问题。请复制链接到 Chrome、Safari 或 B 站 App 中打开；也可以在 B 站搜索对应 BV 号。
+      </div>
+      <p class="print-tip">打印建议：浏览器中选择“打印”，横向打印效果更好。</p>
+    </header>
+
+    <section>
+      <h2>资料配置</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>必须有</h3>
+          <ul>
+            <li>苏科版八年级物理上册课本</li>
+            <li>学校配套《补充习题》或苏科版同步练习</li>
+            <li>错题本一本</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>二选一</h3>
+          <ul>
+            <li>基础一般：苏科版基础同步练习</li>
+            <li>中等以上：《实验班提优训练 八年级物理上册 苏科版》</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>阶段使用</h3>
+          <ul>
+            <li>每周六做一份单元卷</li>
+            <li>8 月做 2 份综合卷</li>
+            <li>网上苏科版单元卷可作为补充</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>每天固定流程</h2>
+      <div class="routine">
+        <div class="step"><strong>10 分钟</strong>读苏科课本：标题、实验、黑体字、例题。</div>
+        <div class="step"><strong>30 分钟</strong>看于总视频：只看当天对应主题。</div>
+        <div class="step"><strong>10 分钟</strong>写笔记：概念、规律、实验、易错点。</div>
+        <div class="step"><strong>30 分钟</strong>做练习：先基础题，再中档题。</div>
+        <div class="step"><strong>5 分钟</strong>错题复盘：每题写一句错因。</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>视频链接总表</h2>
+      <div class="links">
+        <div class="source"><strong>八上基础：</strong><a href="https://www.bilibili.com/video/BV1xK411J7Mq">https://www.bilibili.com/video/BV1xK411J7Mq</a></div>
+        <div class="source"><strong>八上光学：</strong><a href="https://www.bilibili.com/video/BV1By4y1a7Vg">https://www.bilibili.com/video/BV1By4y1a7Vg</a></div>
+        <div class="source"><strong>凸透镜专题：</strong><a href="https://www.bilibili.com/video/BV1H64y1u7A2">https://www.bilibili.com/video/BV1H64y1u7A2</a></div>
+        <div class="source"><strong>单位换算：</strong><a href="https://www.bilibili.com/video/BV1eZ4y1c7JN">https://www.bilibili.com/video/BV1eZ4y1c7JN</a></div>
+        <div class="source"><strong>物理数学计算：</strong><a href="https://www.bilibili.com/video/BV14v411a79B">https://www.bilibili.com/video/BV14v411a79B</a></div>
+        <div class="source"><strong>初中物理总览：</strong><a href="https://www.bilibili.com/video/BV1X54y137KN">https://www.bilibili.com/video/BV1X54y137KN</a></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>每日计划</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>完成</th>
+              <th>日期</th>
+              <th>学习内容</th>
+              <th>于总视频</th>
+              <th>练习任务</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/1 周三</td>
+              <td><span class="tag">入门</span><br>物理学什么、怎么学；观察、实验、测量意识。</td>
+              <td><a href="https://www.bilibili.com/video/BV1X54y137KN">初中物理总览</a></td>
+              <td>读课本引言，写 3 条“物理怎么学”。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/2 周四</td>
+              <td><span class="tag">声现象</span><br>声音的产生与传播。</td>
+              <td><a href="https://www.bilibili.com/video/BV1xK411J7Mq">八上基础：找“声音的产生与传播”</a></td>
+              <td>基础题 10-15 题；做尺子振动小实验。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/3 周五</td>
+              <td><span class="tag">声现象</span><br>音调、响度、音色。</td>
+              <td><a href="https://www.bilibili.com/video/BV1xK411J7Mq">八上基础：找“声音的特性”</a></td>
+              <td>声音特性题 15 题；整理易混概念。</td>
+            </tr>
+            <tr class="weekend">
+              <td class="check">□</td>
+              <td class="date">7/4 周六</td>
+              <td><span class="tag">声现象</span><br>噪声、声的利用。</td>
+              <td><a href="https://www.bilibili.com/video/BV1xK411J7Mq">八上基础：找“噪声/声的利用”</a></td>
+              <td>声现象小测 1 份；订正错题。</td>
+            </tr>
+            <tr class="rest">
+              <td class="check">□</td>
+              <td class="date">7/5 周日</td>
+              <td><span class="tag">休息</span><br>轻复盘。</td>
+              <td>不看新视频</td>
+              <td>错题看 10 分钟。</td>
+            </tr>
+
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/6 周一</td>
+              <td><span class="tag">声现象</span><br>声现象总复习。</td>
+              <td><a href="https://www.bilibili.com/video/BV1xK411J7Mq">八上基础：回看声现象</a></td>
+              <td>声现象错题重做；完成一页 A4 总结。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/7 周二</td>
+              <td><span class="tag">光现象</span><br>光的直线传播、小孔成像。</td>
+              <td><a href="https://www.bilibili.com/video/BV1By4y1a7Vg">八上光学：找“光的直线传播”</a></td>
+              <td>光路图 5 题；基础题 10 题。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/8 周三</td>
+              <td><span class="tag">光现象</span><br>光的反射定律。</td>
+              <td><a href="https://www.bilibili.com/video/BV1By4y1a7Vg">八上光学：找“光的反射”</a></td>
+              <td>反射画图题 8 题。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/9 周四</td>
+              <td><span class="tag">光现象</span><br>平面镜成像。</td>
+              <td><a href="https://www.bilibili.com/video/BV1By4y1a7Vg">八上光学：找“平面镜成像”</a></td>
+              <td>平面镜成像题 15 题。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/10 周五</td>
+              <td><span class="tag">光现象</span><br>光现象综合。</td>
+              <td><a href="https://www.bilibili.com/video/BV1By4y1a7Vg">八上光学：对应回看</a></td>
+              <td>光现象单元练习 1 份。</td>
+            </tr>
+            <tr class="weekend">
+              <td class="check">□</td>
+              <td class="date">7/11 周六</td>
+              <td><span class="tag">复盘</span><br>声 + 光复盘。</td>
+              <td><a href="https://www.bilibili.com/video/BV1xK411J7Mq">八上基础</a> / <a href="https://www.bilibili.com/video/BV1By4y1a7Vg">八上光学</a></td>
+              <td>错题重做；不会的题标星。</td>
+            </tr>
+            <tr class="rest">
+              <td class="check">□</td>
+              <td class="date">7/12 周日</td>
+              <td><span class="tag">休息</span><br>家庭小实验。</td>
+              <td>不看新视频</td>
+              <td>做镜子成像小实验。</td>
+            </tr>
+
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/13 周一</td>
+              <td><span class="tag">折射</span><br>光的折射。</td>
+              <td><a href="https://www.bilibili.com/video/BV1By4y1a7Vg">八上光学：找“光的折射”</a></td>
+              <td>折射基础题 15 题。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/14 周二</td>
+              <td><span class="tag">透镜</span><br>凸透镜、凹透镜认识。</td>
+              <td><a href="https://www.bilibili.com/video/BV1H64y1u7A2">凸透镜专题：找“认识透镜”</a></td>
+              <td>透镜画图题 8 题。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/15 周三</td>
+              <td><span class="tag">透镜</span><br>凸透镜成像规律 1。</td>
+              <td><a href="https://www.bilibili.com/video/BV1H64y1u7A2">凸透镜专题：找“成像规律”</a></td>
+              <td>成像规律表格默写。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/16 周四</td>
+              <td><span class="tag">透镜</span><br>凸透镜成像规律 2。</td>
+              <td><a href="https://www.bilibili.com/video/BV1H64y1u7A2">凸透镜专题：继续成像规律</a></td>
+              <td>成像判断题 15 题。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/17 周五</td>
+              <td><span class="tag">透镜</span><br>照相机、投影仪、放大镜。</td>
+              <td><a href="https://www.bilibili.com/video/BV1H64y1u7A2">凸透镜专题：找“应用”</a></td>
+              <td>应用题 10-15 题。</td>
+            </tr>
+            <tr class="weekend">
+              <td class="check">□</td>
+              <td class="date">7/18 周六</td>
+              <td><span class="tag">透镜</span><br>透镜单元复盘。</td>
+              <td><a href="https://www.bilibili.com/video/BV1H64y1u7A2">凸透镜专题：回看错点</a></td>
+              <td>透镜单元卷 1 份。</td>
+            </tr>
+            <tr class="rest">
+              <td class="check">□</td>
+              <td class="date">7/19 周日</td>
+              <td><span class="tag">休息</span><br>轻复盘。</td>
+              <td>不看新视频</td>
+              <td>错题看 10 分钟。</td>
+            </tr>
+
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/20 周一</td>
+              <td><span class="tag">透镜</span><br>透镜错题专项。</td>
+              <td><a href="https://www.bilibili.com/video/BV1H64y1u7A2">凸透镜专题：按错题回看</a></td>
+              <td>重做 7/18 错题。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/21 周二</td>
+              <td><span class="tag">物态变化</span><br>温度、温度计。</td>
+              <td><a href="https://www.bilibili.com/video/BV1xK411J7Mq">八上基础：找“温度/温度计”</a></td>
+              <td>温度计读数题 10 题。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/22 周三</td>
+              <td><span class="tag">物态变化</span><br>熔化和凝固。</td>
+              <td><a href="https://www.bilibili.com/video/BV1xK411J7Mq">八上基础：找“熔化和凝固”</a></td>
+              <td>熔化图像题 8 题。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/23 周四</td>
+              <td><span class="tag">物态变化</span><br>汽化和液化。</td>
+              <td><a href="https://www.bilibili.com/video/BV1xK411J7Mq">八上基础：找“汽化和液化”</a></td>
+              <td>实验题 10 题。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/24 周五</td>
+              <td><span class="tag">物态变化</span><br>升华和凝华。</td>
+              <td><a href="https://www.bilibili.com/video/BV1xK411J7Mq">八上基础：找“升华和凝华”</a></td>
+              <td>物态变化判断题 15 题。</td>
+            </tr>
+            <tr class="weekend">
+              <td class="check">□</td>
+              <td class="date">7/25 周六</td>
+              <td><span class="tag">物态变化</span><br>单元复盘。</td>
+              <td><a href="https://www.bilibili.com/video/BV1xK411J7Mq">八上基础：回看物态变化</a></td>
+              <td>物态变化单元卷 1 份。</td>
+            </tr>
+            <tr class="rest">
+              <td class="check">□</td>
+              <td class="date">7/26 周日</td>
+              <td><span class="tag">休息</span><br>家庭小实验。</td>
+              <td>不看新视频</td>
+              <td>做冰融化/液化小实验。</td>
+            </tr>
+
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/27 周一</td>
+              <td><span class="tag">物态变化</span><br>错题专项。</td>
+              <td><a href="https://www.bilibili.com/video/BV1xK411J7Mq">八上基础：按错题回看</a></td>
+              <td>物态变化错题重做。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/28 周二</td>
+              <td><span class="tag">运动</span><br>长度和时间测量。</td>
+              <td><a href="https://www.bilibili.com/video/BV1xK411J7Mq">八上基础：找“机械运动/测量”</a></td>
+              <td>刻度尺读数题 15 题。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/29 周三</td>
+              <td><span class="tag">运动</span><br>运动和静止的相对性。</td>
+              <td><a href="https://www.bilibili.com/video/BV1xK411J7Mq">八上基础：找“运动的描述”</a></td>
+              <td>基础题 10-15 题。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/30 周四</td>
+              <td><span class="tag">运动</span><br>速度公式。</td>
+              <td><a href="https://www.bilibili.com/video/BV1xK411J7Mq">八上基础：找“速度”</a></td>
+              <td>速度计算题 10 题。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">7/31 周五</td>
+              <td><span class="tag">运动</span><br>平均速度。</td>
+              <td><a href="https://www.bilibili.com/video/BV1xK411J7Mq">八上基础：找“平均速度”</a></td>
+              <td>平均速度 10 题；单位换算。</td>
+            </tr>
+            <tr class="weekend">
+              <td class="check">□</td>
+              <td class="date">8/1 周六</td>
+              <td><span class="tag">专项</span><br>单位换算专项。</td>
+              <td><a href="https://www.bilibili.com/video/BV1eZ4y1c7JN">单位换算</a></td>
+              <td>m/s、km/h 换算专项；物体运动单元卷。</td>
+            </tr>
+            <tr class="rest">
+              <td class="check">□</td>
+              <td class="date">8/2 周日</td>
+              <td><span class="tag">休息</span><br>轻复盘。</td>
+              <td>不看新视频</td>
+              <td>错题看 10 分钟。</td>
+            </tr>
+
+            <tr>
+              <td class="check">□</td>
+              <td class="date">8/3 周一</td>
+              <td><span class="tag">二轮</span><br>声现象二轮复习。</td>
+              <td><a href="https://www.bilibili.com/video/BV1xK411J7Mq">八上基础：声现象回看</a></td>
+              <td>声现象单元错题。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">8/4 周二</td>
+              <td><span class="tag">二轮</span><br>光现象二轮复习。</td>
+              <td><a href="https://www.bilibili.com/video/BV1By4y1a7Vg">八上光学：光现象回看</a></td>
+              <td>光路图专项。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">8/5 周三</td>
+              <td><span class="tag">二轮</span><br>透镜二轮复习。</td>
+              <td><a href="https://www.bilibili.com/video/BV1H64y1u7A2">凸透镜专题：回看</a></td>
+              <td>凸透镜成像专项。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">8/6 周四</td>
+              <td><span class="tag">二轮</span><br>物态变化二轮复习。</td>
+              <td><a href="https://www.bilibili.com/video/BV1xK411J7Mq">八上基础：物态变化回看</a></td>
+              <td>图像题专项。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">8/7 周五</td>
+              <td><span class="tag">二轮</span><br>机械运动二轮复习。</td>
+              <td><a href="https://www.bilibili.com/video/BV1xK411J7Mq">八上基础</a> + <a href="https://www.bilibili.com/video/BV1eZ4y1c7JN">单位换算</a></td>
+              <td>速度计算专项。</td>
+            </tr>
+            <tr class="weekend">
+              <td class="check">□</td>
+              <td class="date">8/8 周六</td>
+              <td><span class="tag">综合</span><br>八上综合卷 1。</td>
+              <td>不看新视频</td>
+              <td>限时完成 + 批改。</td>
+            </tr>
+            <tr class="rest">
+              <td class="check">□</td>
+              <td class="date">8/9 周日</td>
+              <td><span class="tag">休息</span><br>综合卷讲评。</td>
+              <td>按错题回看对应视频</td>
+              <td>整理综合卷错题。</td>
+            </tr>
+
+            <tr>
+              <td class="check">□</td>
+              <td class="date">8/10 周一</td>
+              <td><span class="tag">提升</span><br>声 + 光综合提升。</td>
+              <td><a href="https://www.bilibili.com/video/BV1By4y1a7Vg">八上光学</a></td>
+              <td>中档题 20 题。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">8/11 周二</td>
+              <td><span class="tag">提升</span><br>透镜提升。</td>
+              <td><a href="https://www.bilibili.com/video/BV1H64y1u7A2">凸透镜专题</a></td>
+              <td>中档题 15 题；提优 2 题。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">8/12 周三</td>
+              <td><span class="tag">提升</span><br>物态变化提升。</td>
+              <td><a href="https://www.bilibili.com/video/BV1xK411J7Mq">八上基础：物态变化</a></td>
+              <td>实验题、图像题专项。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">8/13 周四</td>
+              <td><span class="tag">提升</span><br>运动计算提升。</td>
+              <td><a href="https://www.bilibili.com/video/BV14v411a79B">物理数学计算</a></td>
+              <td>计算题专项。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">8/14 周五</td>
+              <td><span class="tag">综合</span><br>八上综合卷 2。</td>
+              <td>不看新视频</td>
+              <td>限时完成。</td>
+            </tr>
+            <tr class="weekend">
+              <td class="check">□</td>
+              <td class="date">8/15 周六</td>
+              <td><span class="tag">讲评</span><br>综合卷 2 讲评。</td>
+              <td>按错题回看对应视频</td>
+              <td>错题全部重做。</td>
+            </tr>
+            <tr class="rest">
+              <td class="check">□</td>
+              <td class="date">8/16 周日</td>
+              <td><span class="tag">休息</span><br>完全休息。</td>
+              <td>不看新视频</td>
+              <td>不安排任务。</td>
+            </tr>
+
+            <tr>
+              <td class="check">□</td>
+              <td class="date">8/17 周一</td>
+              <td><span class="tag">收束</span><br>全册知识清单整理。</td>
+              <td><a href="https://www.bilibili.com/video/BV1X54y137KN">初中物理总览</a></td>
+              <td>每章一张 A4 纸。</td>
+            </tr>
+            <tr>
+              <td class="check">□</td>
+              <td class="date">8/18 周二</td>
+              <td><span class="tag">检测</span><br>开学前模拟检测。</td>
+              <td>不看新视频</td>
+              <td>做一套期初模拟卷；整理最后错题。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
