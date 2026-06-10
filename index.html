@@ -285,7 +285,7 @@
       </div>
 <div class="note">
         如果 B 站链接在内置浏览器里打不开，通常不是本地 HTML 的问题。请复制链接到 Chrome、Safari 或 B 站 App 中打开；也可以在 B 站搜索对应 BV 号。
-      </div><div class="note">已处理：所有 B 站视频链接已统一加上 t=1，并设置为新窗口打开，尽量避免从上次观看进度继续播放。</div>
+      </div><div class="note">已处理：上方“视频链接总表”保留合集入口；每日计划里的视频链接改为打开 B 站搜索页，避免同一个 BV 链接按历史进度继续播放。</div>
 <p class="print-tip">打印建议：浏览器中选择“打印”，横向打印效果更好。</p>
 </header>
 <section>
@@ -699,9 +699,9 @@
 </div>
 </section>
 </main>
-<script id="auto-fix-bilibili-start-time">
-  // 自动给 B 站视频链接加 t=1，避免打开时从上次播放进度继续。
-  document.querySelectorAll('a[href*="bilibili.com/video/"]').forEach(function (link) {
+<script id="auto-fix-bilibili-links">
+  // 合集入口保留视频地址；每日计划改为搜索地址，避免 B 站按历史进度继续播放。
+  document.querySelectorAll('.links a[href*="bilibili.com/video/"]').forEach(function (link) {
     try {
       const url = new URL(link.href);
       url.searchParams.set('t', '1');
@@ -711,6 +711,18 @@
     } catch (e) {
       console.warn('B站链接处理失败：', link.href);
     }
+  });
+
+  document.querySelectorAll('tbody a[href*="bilibili.com/video/"]').forEach(function (link) {
+    const cellText = link.closest('td').textContent
+      .replace(/[：:、“”"\/+]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+    const query = '于总 初中物理 八年级 ' + cellText;
+    link.href = 'https://search.bilibili.com/all?keyword=' + encodeURIComponent(query);
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.title = '打开 B 站搜索，避免继续播放历史进度';
   });
 </script></body>
 </html>
