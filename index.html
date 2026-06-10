@@ -7,14 +7,18 @@
 <title>江苏初二物理暑假自学计划</title>
 <style>
     :root {
-      --ink: #18212f;
-      --muted: #5b6575;
-      --line: #d8dee8;
-      --paper: #fbfcfe;
-      --band: #eef4fb;
-      --accent: #1d6fb8;
-      --accent-soft: #e6f1fb;
-      --ok: #247a51;
+      --ink: #10203b;
+      --muted: #5a6980;
+      --line: #bcd7f7;
+      --paper: #ffffff;
+      --band: #e8f3ff;
+      --accent: #0d6ed8;
+      --accent-deep: #0b56b6;
+      --accent-soft: #eaf5ff;
+      --green: #2f9355;
+      --green-soft: #eefaf1;
+      --orange: #e68a13;
+      --orange-soft: #fff5e6;
     }
 
     * {
@@ -25,33 +29,44 @@
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
       color: var(--ink);
-      background: #f4f6f9;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(13, 110, 216, 0.08), transparent 30%),
+        linear-gradient(180deg, #f7fbff 0%, #f2f7fc 100%);
       line-height: 1.6;
     }
 
     main {
-      max-width: 1180px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 32px 20px 56px;
+      padding: 24px 24px 56px;
     }
 
     header {
-      padding: 28px 30px;
-      background: var(--paper);
+      position: relative;
+      overflow: hidden;
+      padding: 34px;
+      background:
+        url("img/bg.png") right 34px top 18px / auto 78% no-repeat,
+        #EEF4FB;
       border: 1px solid var(--line);
-      border-radius: 8px;
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(43, 104, 175, 0.12);
     }
 
     h1 {
-      margin: 0 0 10px;
-      font-size: 30px;
+      margin: 12px 0 12px;
+      max-width: 700px;
+      font-size: clamp(34px, 5vw, 52px);
       line-height: 1.25;
       letter-spacing: 0;
     }
 
     h2 {
       margin: 32px 0 14px;
-      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 26px;
       letter-spacing: 0;
     }
 
@@ -72,153 +87,495 @@
     }
 
     a:hover {
-      text-decoration: underline;
+      text-decoration: none;
     }
 
     .subtitle {
       color: var(--muted);
-      font-size: 16px;
-      max-width: 860px;
+      font-size: 17px;
+      max-width: 720px;
     }
 
-    .cards {
+    .hero-grid {
+      position: relative;
+      z-index: 1;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 20px;
+      grid-template-columns: minmax(0, 760px);
+      gap: 28px;
+      align-items: center;
     }
 
-    .card {
-      background: #fff;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: 0;
+      box-shadow: 0 8px 18px rgba(13, 110, 216, 0.22);
+    }
+
+    .hero-notes {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-top: 26px;
+      padding: 20px;
       border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.78);
     }
 
-    .card ul {
-      margin: 8px 0 0;
-      padding-left: 20px;
+    .hero-note {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 6px 22px 6px 0;
     }
 
-    .note {
-      margin-top: 16px;
-      padding: 14px 16px;
-      background: var(--accent-soft);
-      border-left: 4px solid var(--accent);
-      border-radius: 6px;
-      color: #203850;
+    .hero-note + .hero-note {
+      border-left: 1px solid #c8dbf2;
+      padding-left: 26px;
+      padding-right: 0;
+    }
+
+    .note-icon,
+    .step-icon,
+    .footer-icon {
+      display: inline-grid;
+      place-items: center;
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+      font-weight: 900;
+    }
+
+    .note-icon {
+      width: 46px;
+      height: 46px;
+      font-size: 22px;
+      background: transparent;
+    }
+
+    .note-icon.green {
+      background: transparent;
+    }
+
+    .note-icon img,
+    .step-icon img,
+    .footer-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .hero-note strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent-deep);
+      font-size: 18px;
     }
 
     .routine {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 10px;
-      margin: 14px 0 24px;
+      gap: 26px;
+      margin: 16px 0 28px;
     }
 
     .step {
+      position: relative;
       background: #fff;
       border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 12px;
-      min-height: 92px;
+      border-radius: 14px;
+      padding: 18px 16px;
+      min-height: 170px;
+      text-align: center;
+      box-shadow: 0 12px 24px rgba(43, 104, 175, 0.08);
+    }
+
+    .step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      border-left: 11px solid #a9cef5;
     }
 
     .step strong {
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
       color: var(--accent);
+      font-size: 18px;
+    }
+
+    .step-icon {
+      width: 64px;
+      height: 64px;
+      margin: 8px auto 12px;
+      background: #e7f2ff;
+      color: var(--accent-deep);
+      border: 1px solid #c6ddf8;
+      font-size: 28px;
+      box-shadow: inset 0 0 0 8px rgba(255, 255, 255, 0.72);
+    }
+
+    .step-title {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 800;
     }
 
     .table-wrap {
-      overflow-x: auto;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 8px;
+      overflow: visible;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 940px;
-      font-size: 14px;
-    }
-
-    th,
-    td {
-      border-bottom: 1px solid var(--line);
-      border-right: 1px solid var(--line);
-      padding: 10px 12px;
-      vertical-align: top;
-      text-align: left;
-    }
-
-    th:last-child,
-    td:last-child {
-      border-right: 0;
-    }
-
-    tr:last-child td {
-      border-bottom: 0;
-    }
-
-    thead th {
-      position: sticky;
-      top: 0;
-      background: #dfeaf5;
-      color: #17283a;
-      z-index: 1;
-    }
-
-    tbody tr.weekend {
-      background: #f8fafc;
-    }
-
-    tbody tr.rest {
-      background: #f3f7f1;
-    }
-
-    .date {
-      white-space: nowrap;
-      font-weight: 700;
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: var(--band);
-      color: #30445b;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 5px;
-    }
-
-    .check {
-      width: 46px;
-      text-align: center;
-      color: var(--ok);
-      font-weight: 700;
-    }
-
-    .links {
+    .card-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 12px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 15px;
     }
 
-    .source {
-      padding: 12px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
+    .plan-card {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: auto 1fr;
       background: #fff;
+      border: 0;
+      border-radius: 10px;
+      box-shadow: 0 12px 28px rgba(43, 104, 175, 0.08);
+      transition: transform 160ms ease, box-shadow 160ms ease;
     }
 
-    .print-tip {
-      color: var(--muted);
+    .plan-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 38px rgba(43, 104, 175, 0.18);
+    }
+
+    .plan-card.weekend,
+    .plan-card.review {
+      border-color: #f2b95c;
+    }
+
+    .plan-card.rest {
+      border-color: #7ac58c;
+    }
+
+    .plan-card.done {
+      opacity: 0.72;
+      box-shadow: none;
+    }
+
+    .plan-card.done h3,
+    .plan-card.done .task-block {
+      text-decoration: line-through;
+      text-decoration-color: rgba(16, 32, 59, 0.35);
+      text-decoration-thickness: 2px;
+    }
+
+    .plan-card-hero {
+      position: relative;
+      min-height: 168px;
+      display: grid;
+      place-items: center;
+      padding: 10px;
+      background-image: var(--card-bg, url("img/card-bg-blue-2.png"));
+      background-size: cover;
+      background-position: center;
+    }
+
+    .plan-card-hero .tag {
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 30px;
+      min-width: 0;
+      padding: 0 15px;
+      border-radius: 0 0 16px 0;
+      background: #4f7ee8;
+      color: #fff;
       font-size: 14px;
-      margin-top: 12px;
+      font-weight: 400;
+      line-height: 30px;
+      text-align: center;
+    }
+
+    .plan-card.review .tag,
+    .plan-card.weekend .tag {
+      background: #f2a241;
+    }
+
+    .plan-card.rest .tag {
+      background: #4dab69;
+    }
+
+    .plan-card h3 {
+      margin: 0;
+      color: #000;
+      font-size: 20px;
+      line-height: 1.3;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .card-date {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      color: #000;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .card-check {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      line-height: 1;
+    }
+
+    .check-input {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      background: #fff;
+      cursor: pointer;
+      position: relative;
+      vertical-align: middle;
+    }
+
+    .check-input:checked {
+      background: var(--accent);
+    }
+
+    .check-input:checked::after {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
+      border: solid #fff;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+
+    .plan-card.weekend .check-input,
+    .plan-card.review .check-input {
+      border-color: var(--orange);
+    }
+
+    .plan-card.weekend .check-input:checked,
+    .plan-card.review .check-input:checked {
+      background: var(--orange);
+    }
+
+    .plan-card.rest .check-input {
+      border-color: var(--green);
+    }
+
+    .plan-card.rest .check-input:checked {
+      background: var(--green);
+    }
+
+    .plan-card-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-areas:
+        "video action"
+        "task task";
+      gap: 8px 16px;
+      padding: 10px 15px;
+    }
+
+    .video-block {
+      grid-area: video;
+      color: #777;
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .video-block span {
+      display: block;
+      margin-top: 4px;
+      margin-bottom: 0;
+    }
+
+    .video-block a,
+    .video-block strong {
+      display: block;
+      color: #000;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .task-block {
+      grid-area: task;
+      color: #6a6f78;
+      font-size: 12px;
+      font-weight: 400;
+      align-self: end;
+    }
+
+    .task-block span {
+      display: block;
+      width: fit-content;
+      margin-right: 0;
+      margin-bottom: 4px;
+      padding: 2px 12px;
+      border: 1px solid #7fb2f2;
+      border-radius: 999px;
+      color: #407bd8;
+      background: #f3f8ff;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .plan-card.weekend .task-block span,
+    .plan-card.review .task-block span {
+      border-color: #f2b95c;
+      color: #c26b00;
+      background: #fff7e8;
+    }
+
+    .plan-card.rest .task-block span {
+      border-color: #7ac58c;
+      color: #277943;
+      background: #f1fbf3;
+    }
+
+    .study-button {
+      grid-area: action;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+      height: 34px;
+      padding: 0 14px;
+      border: 0;
+      border-radius: 999px;
+      background: #f6a552;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 900;
+      box-shadow: 0 8px 16px rgba(246, 165, 82, 0.22);
+      align-self: center;
+      justify-self: end;
+      cursor: pointer;
+      transition: background-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .study-button:hover {
+      background: #e78e34;
+      text-decoration: none;
+    }
+
+    .plan-card.rest .study-button {
+      background: #5db86f;
+      box-shadow: 0 8px 16px rgba(93, 184, 111, 0.2);
+    }
+
+    .plan-card.rest .study-button:hover {
+      background: #479f59;
+    }
+
+    .daily-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 32px 0 14px;
+    }
+
+    .daily-heading h2 {
+      margin: 0;
+    }
+
+    .legend {
+      display: flex;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    .legend span::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      margin-right: 6px;
+      border-radius: 999px;
+      background: currentColor;
+      vertical-align: 2px;
+    }
+
+    .legend .new {
+      color: var(--accent);
+    }
+
+    .legend .rest {
+      color: var(--green);
+    }
+
+    .legend .review {
+      color: var(--orange);
+    }
+
+    .goal-footer {
+      display: grid;
+      grid-template-columns: 62px 1fr 110px;
+      gap: 18px;
+      align-items: center;
+      margin-top: 20px;
+      padding: 18px 28px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: linear-gradient(90deg, #f8fcff, #eef7ff);
+    }
+
+    .footer-icon {
+      width: 58px;
+      height: 58px;
+      font-size: 26px;
+    }
+
+    .goal-footer strong {
+      display: block;
+      color: var(--accent-deep);
+      font-size: 22px;
+    }
+
+    .target-placeholder {
+      min-height: 74px;
+      display: grid;
+      place-items: center;
+    }
+
+    .target-image {
+      width: 92px;
+      height: auto;
+      filter: drop-shadow(0 12px 16px rgba(30, 92, 166, 0.18));
     }
 
     @media (max-width: 860px) {
@@ -234,10 +591,45 @@
         font-size: 24px;
       }
 
-      .cards,
-      .routine,
-      .links {
+      .hero-grid,
+      .hero-notes,
+      .routine {
         grid-template-columns: 1fr;
+      }
+
+      .hero-note + .hero-note {
+        border-left: 0;
+        border-top: 1px solid #c8dbf2;
+        padding-left: 0;
+        padding-top: 18px;
+        margin-top: 12px;
+      }
+
+      .step:not(:last-child)::after {
+        display: none;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .daily-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .legend {
+        flex-wrap: wrap;
+      }
+
+      .goal-footer {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (min-width: 861px) and (max-width: 1100px) {
+      .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -252,16 +644,12 @@
       }
 
       header,
-      .card,
       .step,
       .table-wrap,
-      .source {
+      .plan-card,
+      .goal-footer {
         border-color: #aaa;
         box-shadow: none;
-      }
-
-      thead th {
-        position: static;
       }
 
       a {
@@ -269,438 +657,710 @@
         text-decoration: none;
       }
 
-      .print-tip {
-        display: none;
-      }
     }
   </style>
 </head>
 <body>
 <main>
 <header>
+<div class="hero-grid">
+<div>
+<div class="eyebrow">暑假计划</div>
 <h1>江苏初二物理暑假自学计划</h1>
 <p class="subtitle">适合马上升初二、学校使用苏科版、暑假跟 B 站“于总”自学的孩子。计划按 2026 年 7 月 1 日到 8 月 18 日设计，共 49 天；如果实际放假时间不同，整体顺延即可。</p>
-<div class="note">
-        核心原则：苏科版课本定学习顺序，于总视频负责讲懂，同步练习负责落地。不要按人教版合集顺序一路刷。
-      </div>
-<div class="note">
-        如果 B 站链接在内置浏览器里打不开，通常不是本地 HTML 的问题。请复制链接到 Chrome、Safari 或 B 站 App 中打开；也可以在 B 站搜索对应 BV 号。
-      </div><div class="note">已处理：每日计划里的 B 站链接已改为直达于总八上合集的具体分集，链接格式为 BV1qu411b7EY?p=集数&t=1。</div>
-<p class="print-tip">打印建议：浏览器中选择“打印”，横向打印效果更好。</p>
-</header>
-<section>
-<h2>资料配置</h2>
-<div class="cards">
-<article class="card">
-<h3>必须有</h3>
-<ul>
-<li>苏科版八年级物理上册课本</li>
-<li>学校配套《补充习题》或苏科版同步练习</li>
-<li>错题本一本</li>
-</ul>
-</article>
-<article class="card">
-<h3>二选一</h3>
-<ul>
-<li>基础一般：苏科版基础同步练习</li>
-<li>中等以上：《实验班提优训练 八年级物理上册 苏科版》</li>
-</ul>
-</article>
-<article class="card">
-<h3>阶段使用</h3>
-<ul>
-<li>每周六做一份单元卷</li>
-<li>8 月做 2 份综合卷</li>
-<li>网上苏科版单元卷可作为补充</li>
-</ul>
-</article>
 </div>
-</section>
+</div>
+<div class="hero-notes">
+<div class="hero-note">
+<span class="note-icon"><img src="img/principle-star.png" alt="核心原则"/></span>
+<div><strong>核心原则</strong><p>苏科版课本定学习顺序，于总视频负责讲懂，同步练习负责落地。不要按人教版合集顺序一路刷。</p></div>
+</div>
+<div class="hero-note">
+<span class="note-icon green"><img src="img/tip-shield.png" alt="温馨提示"/></span>
+<div><strong>温馨提示</strong><p>如果 B 站链接在内置浏览器里打不开，请复制链接到 Chrome、Safari 或 B 站 App 中打开。</p></div>
+</div>
+</div>
+</header>
 <section>
 <h2>每天固定流程</h2>
 <div class="routine">
-<div class="step"><strong>10 分钟</strong>读苏科课本：标题、实验、黑体字、例题。</div>
-<div class="step"><strong>30 分钟</strong>看于总视频：只看当天对应主题。</div>
-<div class="step"><strong>10 分钟</strong>写笔记：概念、规律、实验、易错点。</div>
-<div class="step"><strong>30 分钟</strong>做练习：先基础题，再中档题。</div>
-<div class="step"><strong>5 分钟</strong>错题复盘：每题写一句错因。</div>
+<div class="step"><strong>10 分钟</strong><span class="step-icon"><img src="img/routine-book.png" alt="读课本"/></span><span class="step-title">读苏科课本</span>标题、实验、黑体字、例题。</div>
+<div class="step"><strong>30 分钟</strong><span class="step-icon"><img src="img/routine-video.png" alt="看视频"/></span><span class="step-title">看于总视频</span>只看当天对应主题。</div>
+<div class="step"><strong>10 分钟</strong><span class="step-icon"><img src="img/routine-notes.png" alt="写笔记"/></span><span class="step-title">写笔记</span>概念、规律、实验、易错点。</div>
+<div class="step"><strong>30 分钟</strong><span class="step-icon"><img src="img/routine-pencil.png" alt="做练习"/></span><span class="step-title">做练习</span>先基础题，再中档题。</div>
+<div class="step"><strong>5 分钟</strong><span class="step-icon"><img src="img/routine-checklist.png" alt="错题复盘"/></span><span class="step-title">错题复盘</span>每题写一句错因。</div>
 </div>
 </section>
 <section>
-<h2>视频链接总表</h2>
-<div class="links">
-<div class="source"><strong>于总八上合集：</strong><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=1&t=1" rel="noopener noreferrer" target="_blank">https://www.bilibili.com/video/BV1qu411b7EY</a></div>
-<div class="source"><strong>光学起点：</strong><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=70&t=1" rel="noopener noreferrer" target="_blank">https://www.bilibili.com/video/BV1qu411b7EY?p=70</a></div>
-<div class="source"><strong>透镜起点：</strong><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=104&t=1" rel="noopener noreferrer" target="_blank">https://www.bilibili.com/video/BV1qu411b7EY?p=104</a></div>
-<div class="source"><strong>单位换算：</strong><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=4&t=1" rel="noopener noreferrer" target="_blank">https://www.bilibili.com/video/BV1qu411b7EY?p=4</a></div>
-<div class="source"><strong>速度计算起点：</strong><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=21&t=1" rel="noopener noreferrer" target="_blank">https://www.bilibili.com/video/BV1qu411b7EY?p=21</a></div>
-<div class="source"><strong>合集第 1 集：</strong><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=1&t=1" rel="noopener noreferrer" target="_blank">https://www.bilibili.com/video/BV1qu411b7EY?p=1</a></div>
-</div>
-</section>
-<section>
+<div class="daily-heading">
 <h2>每日计划</h2>
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>完成</th>
-<th>日期</th>
-<th>学习内容</th>
-<th>于总视频</th>
-<th>练习任务</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="check">□</td>
-<td class="date">7/1 周三</td>
-<td><span class="tag">入门</span><br/>物理学什么、怎么学；观察、实验、测量意识。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=1&t=1" rel="noopener noreferrer" target="_blank">初中物理总览</a></td>
-<td>读课本引言，写 3 条“物理怎么学”。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/2 周四</td>
-<td><span class="tag">声现象</span><br/>声音的产生与传播。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=36&t=1" rel="noopener noreferrer" target="_blank">八上基础：找“声音的产生与传播”</a></td>
-<td>基础题 10-15 题；做尺子振动小实验。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/3 周五</td>
-<td><span class="tag">声现象</span><br/>音调、响度、音色。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=41&t=1" rel="noopener noreferrer" target="_blank">八上基础：找“声音的特性”</a></td>
-<td>声音特性题 15 题；整理易混概念。</td>
-</tr>
-<tr class="weekend">
-<td class="check">□</td>
-<td class="date">7/4 周六</td>
-<td><span class="tag">声现象</span><br/>噪声、声的利用。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=48&t=1" rel="noopener noreferrer" target="_blank">八上基础：找“噪声/声的利用”</a></td>
-<td>声现象小测 1 份；订正错题。</td>
-</tr>
-<tr class="rest">
-<td class="check">□</td>
-<td class="date">7/5 周日</td>
-<td><span class="tag">休息</span><br/>轻复盘。</td>
-<td>不看新视频</td>
-<td>错题看 10 分钟。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/6 周一</td>
-<td><span class="tag">声现象</span><br/>声现象总复习。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=36&t=1" rel="noopener noreferrer" target="_blank">八上基础：回看声现象</a></td>
-<td>声现象错题重做；完成一页 A4 总结。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/7 周二</td>
-<td><span class="tag">光现象</span><br/>光的直线传播、小孔成像。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=70&t=1" rel="noopener noreferrer" target="_blank">八上光学：找“光的直线传播”</a></td>
-<td>光路图 5 题；基础题 10 题。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/8 周三</td>
-<td><span class="tag">光现象</span><br/>光的反射定律。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=76&t=1" rel="noopener noreferrer" target="_blank">八上光学：找“光的反射”</a></td>
-<td>反射画图题 8 题。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/9 周四</td>
-<td><span class="tag">光现象</span><br/>平面镜成像。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=83&t=1" rel="noopener noreferrer" target="_blank">八上光学：找“平面镜成像”</a></td>
-<td>平面镜成像题 15 题。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/10 周五</td>
-<td><span class="tag">光现象</span><br/>光现象综合。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=70&t=1" rel="noopener noreferrer" target="_blank">八上光学：对应回看</a></td>
-<td>光现象单元练习 1 份。</td>
-</tr>
-<tr class="weekend">
-<td class="check">□</td>
-<td class="date">7/11 周六</td>
-<td><span class="tag">复盘</span><br/>声 + 光复盘。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=36&t=1" rel="noopener noreferrer" target="_blank">八上基础</a> / <a href="https://www.bilibili.com/video/BV1qu411b7EY?p=70&t=1" rel="noopener noreferrer" target="_blank">八上光学</a></td>
-<td>错题重做；不会的题标星。</td>
-</tr>
-<tr class="rest">
-<td class="check">□</td>
-<td class="date">7/12 周日</td>
-<td><span class="tag">休息</span><br/>家庭小实验。</td>
-<td>不看新视频</td>
-<td>做镜子成像小实验。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/13 周一</td>
-<td><span class="tag">折射</span><br/>光的折射。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=93&t=1" rel="noopener noreferrer" target="_blank">八上光学：找“光的折射”</a></td>
-<td>折射基础题 15 题。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/14 周二</td>
-<td><span class="tag">透镜</span><br/>凸透镜、凹透镜认识。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=104&t=1" rel="noopener noreferrer" target="_blank">凸透镜专题：找“认识透镜”</a></td>
-<td>透镜画图题 8 题。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/15 周三</td>
-<td><span class="tag">透镜</span><br/>凸透镜成像规律 1。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=115&t=1" rel="noopener noreferrer" target="_blank">凸透镜专题：找“成像规律”</a></td>
-<td>成像规律表格默写。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/16 周四</td>
-<td><span class="tag">透镜</span><br/>凸透镜成像规律 2。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=117&t=1" rel="noopener noreferrer" target="_blank">凸透镜专题：继续成像规律</a></td>
-<td>成像判断题 15 题。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/17 周五</td>
-<td><span class="tag">透镜</span><br/>照相机、投影仪、放大镜。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=111&t=1" rel="noopener noreferrer" target="_blank">凸透镜专题：找“应用”</a></td>
-<td>应用题 10-15 题。</td>
-</tr>
-<tr class="weekend">
-<td class="check">□</td>
-<td class="date">7/18 周六</td>
-<td><span class="tag">透镜</span><br/>透镜单元复盘。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=115&t=1" rel="noopener noreferrer" target="_blank">凸透镜专题：回看错点</a></td>
-<td>透镜单元卷 1 份。</td>
-</tr>
-<tr class="rest">
-<td class="check">□</td>
-<td class="date">7/19 周日</td>
-<td><span class="tag">休息</span><br/>轻复盘。</td>
-<td>不看新视频</td>
-<td>错题看 10 分钟。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/20 周一</td>
-<td><span class="tag">透镜</span><br/>透镜错题专项。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=115&t=1" rel="noopener noreferrer" target="_blank">凸透镜专题：按错题回看</a></td>
-<td>重做 7/18 错题。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/21 周二</td>
-<td><span class="tag">物态变化</span><br/>温度、温度计。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=49&t=1" rel="noopener noreferrer" target="_blank">八上基础：找“温度/温度计”</a></td>
-<td>温度计读数题 10 题。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/22 周三</td>
-<td><span class="tag">物态变化</span><br/>熔化和凝固。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=56&t=1" rel="noopener noreferrer" target="_blank">八上基础：找“熔化和凝固”</a></td>
-<td>熔化图像题 8 题。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/23 周四</td>
-<td><span class="tag">物态变化</span><br/>汽化和液化。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=61&t=1" rel="noopener noreferrer" target="_blank">八上基础：找“汽化和液化”</a></td>
-<td>实验题 10 题。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/24 周五</td>
-<td><span class="tag">物态变化</span><br/>升华和凝华。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=67&t=1" rel="noopener noreferrer" target="_blank">八上基础：找“升华和凝华”</a></td>
-<td>物态变化判断题 15 题。</td>
-</tr>
-<tr class="weekend">
-<td class="check">□</td>
-<td class="date">7/25 周六</td>
-<td><span class="tag">物态变化</span><br/>单元复盘。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=55&t=1" rel="noopener noreferrer" target="_blank">八上基础：回看物态变化</a></td>
-<td>物态变化单元卷 1 份。</td>
-</tr>
-<tr class="rest">
-<td class="check">□</td>
-<td class="date">7/26 周日</td>
-<td><span class="tag">休息</span><br/>家庭小实验。</td>
-<td>不看新视频</td>
-<td>做冰融化/液化小实验。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/27 周一</td>
-<td><span class="tag">物态变化</span><br/>错题专项。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=55&t=1" rel="noopener noreferrer" target="_blank">八上基础：按错题回看</a></td>
-<td>物态变化错题重做。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/28 周二</td>
-<td><span class="tag">运动</span><br/>长度和时间测量。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=2&t=1" rel="noopener noreferrer" target="_blank">八上基础：找“机械运动/测量”</a></td>
-<td>刻度尺读数题 15 题。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/29 周三</td>
-<td><span class="tag">运动</span><br/>运动和静止的相对性。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=14&t=1" rel="noopener noreferrer" target="_blank">八上基础：找“运动的描述”</a></td>
-<td>基础题 10-15 题。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/30 周四</td>
-<td><span class="tag">运动</span><br/>速度公式。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=18&t=1" rel="noopener noreferrer" target="_blank">八上基础：找“速度”</a></td>
-<td>速度计算题 10 题。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">7/31 周五</td>
-<td><span class="tag">运动</span><br/>平均速度。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=23&t=1" rel="noopener noreferrer" target="_blank">八上基础：找“平均速度”</a></td>
-<td>平均速度 10 题；单位换算。</td>
-</tr>
-<tr class="weekend">
-<td class="check">□</td>
-<td class="date">8/1 周六</td>
-<td><span class="tag">专项</span><br/>单位换算专项。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=4&t=1" rel="noopener noreferrer" target="_blank">单位换算</a></td>
-<td>m/s、km/h 换算专项；物体运动单元卷。</td>
-</tr>
-<tr class="rest">
-<td class="check">□</td>
-<td class="date">8/2 周日</td>
-<td><span class="tag">休息</span><br/>轻复盘。</td>
-<td>不看新视频</td>
-<td>错题看 10 分钟。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">8/3 周一</td>
-<td><span class="tag">二轮</span><br/>声现象二轮复习。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=36&t=1" rel="noopener noreferrer" target="_blank">八上基础：声现象回看</a></td>
-<td>声现象单元错题。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">8/4 周二</td>
-<td><span class="tag">二轮</span><br/>光现象二轮复习。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=70&t=1" rel="noopener noreferrer" target="_blank">八上光学：光现象回看</a></td>
-<td>光路图专项。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">8/5 周三</td>
-<td><span class="tag">二轮</span><br/>透镜二轮复习。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=115&t=1" rel="noopener noreferrer" target="_blank">凸透镜专题：回看</a></td>
-<td>凸透镜成像专项。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">8/6 周四</td>
-<td><span class="tag">二轮</span><br/>物态变化二轮复习。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=55&t=1" rel="noopener noreferrer" target="_blank">八上基础：物态变化回看</a></td>
-<td>图像题专项。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">8/7 周五</td>
-<td><span class="tag">二轮</span><br/>机械运动二轮复习。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=18&t=1" rel="noopener noreferrer" target="_blank">八上基础</a> + <a href="https://www.bilibili.com/video/BV1qu411b7EY?p=4&t=1" rel="noopener noreferrer" target="_blank">单位换算</a></td>
-<td>速度计算专项。</td>
-</tr>
-<tr class="weekend">
-<td class="check">□</td>
-<td class="date">8/8 周六</td>
-<td><span class="tag">综合</span><br/>八上综合卷 1。</td>
-<td>不看新视频</td>
-<td>限时完成 + 批改。</td>
-</tr>
-<tr class="rest">
-<td class="check">□</td>
-<td class="date">8/9 周日</td>
-<td><span class="tag">休息</span><br/>综合卷讲评。</td>
-<td>按错题回看对应视频</td>
-<td>整理综合卷错题。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">8/10 周一</td>
-<td><span class="tag">提升</span><br/>声 + 光综合提升。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=70&t=1" rel="noopener noreferrer" target="_blank">八上光学</a></td>
-<td>中档题 20 题。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">8/11 周二</td>
-<td><span class="tag">提升</span><br/>透镜提升。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=104&t=1" rel="noopener noreferrer" target="_blank">凸透镜专题</a></td>
-<td>中档题 15 题；提优 2 题。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">8/12 周三</td>
-<td><span class="tag">提升</span><br/>物态变化提升。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=55&t=1" rel="noopener noreferrer" target="_blank">八上基础：物态变化</a></td>
-<td>实验题、图像题专项。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">8/13 周四</td>
-<td><span class="tag">提升</span><br/>运动计算提升。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=21&t=1" rel="noopener noreferrer" target="_blank">物理数学计算</a></td>
-<td>计算题专项。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">8/14 周五</td>
-<td><span class="tag">综合</span><br/>八上综合卷 2。</td>
-<td>不看新视频</td>
-<td>限时完成。</td>
-</tr>
-<tr class="weekend">
-<td class="check">□</td>
-<td class="date">8/15 周六</td>
-<td><span class="tag">讲评</span><br/>综合卷 2 讲评。</td>
-<td>按错题回看对应视频</td>
-<td>错题全部重做。</td>
-</tr>
-<tr class="rest">
-<td class="check">□</td>
-<td class="date">8/16 周日</td>
-<td><span class="tag">休息</span><br/>完全休息。</td>
-<td>不看新视频</td>
-<td>不安排任务。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">8/17 周一</td>
-<td><span class="tag">收束</span><br/>全册知识清单整理。</td>
-<td><a href="https://www.bilibili.com/video/BV1qu411b7EY?p=1&t=1" rel="noopener noreferrer" target="_blank">初中物理总览</a></td>
-<td>每章一张 A4 纸。</td>
-</tr>
-<tr>
-<td class="check">□</td>
-<td class="date">8/18 周二</td>
-<td><span class="tag">检测</span><br/>开学前模拟检测。</td>
-<td>不看新视频</td>
-<td>做一套期初模拟卷；整理最后错题。</td>
-</tr>
-</tbody>
-</table>
+<div class="legend"><span class="new">新课学习</span><span class="rest">休息调整</span><span class="review">复盘巩固</span></div>
+</div>
+<div class="card-grid">
+<article class="plan-card" data-key="7/1 周三" style="--card-bg: url('img/card-bg-blue-2.png')">
+  <div class="plan-card-hero">
+    <span class="tag">入门</span>
+    <h3>物理学什么、怎么学；观察、实验、测量意识</h3>
+    <span class="card-date">7/1 周三</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/1 周三 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>初中物理总览</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>读课本引言，写 3 条“物理怎么学”。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=1&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card" data-key="7/2 周四" style="--card-bg: url('img/card-bg-blue-2.png')">
+  <div class="plan-card-hero">
+    <span class="tag">声现象</span>
+    <h3>声音的产生与传播</h3>
+    <span class="card-date">7/2 周四</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/2 周四 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>声音的产生与传播</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>基础题 10-15 题；做尺子振动小实验。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=36&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card" data-key="7/3 周五" style="--card-bg: url('img/card-bg-blue-2.png')">
+  <div class="plan-card-hero">
+    <span class="tag">声现象</span>
+    <h3>音调、响度、音色</h3>
+    <span class="card-date">7/3 周五</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/3 周五 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>声音的特性</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>声音特性题 15 题；整理易混概念。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=41&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card weekend" data-key="7/4 周六" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">声现象</span>
+    <h3>噪声、声的利用</h3>
+    <span class="card-date">7/4 周六</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/4 周六 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>噪声/声的利用</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>声现象小测 1 份；订正错题。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=48&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card rest" data-key="7/5 周日" style="--card-bg: url('img/card-bg-green.png')">
+  <div class="plan-card-hero">
+    <span class="tag">休息</span>
+    <h3>轻复盘</h3>
+    <span class="card-date">7/5 周日</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/5 周日 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>不看新视频</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>错题看 10 分钟。</div>
+    <button class="study-button" type="button">完成</button>
+  </div>
+</article>
+<article class="plan-card" data-key="7/6 周一" style="--card-bg: url('img/card-bg-blue-2.png')">
+  <div class="plan-card-hero">
+    <span class="tag">声现象</span>
+    <h3>声现象总复习</h3>
+    <span class="card-date">7/6 周一</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/6 周一 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>八上基础：回看声现象</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>声现象错题重做；完成一页 A4 总结。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=36&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card" data-key="7/7 周二" style="--card-bg: url('img/card-bg-blue-2.png')">
+  <div class="plan-card-hero">
+    <span class="tag">光现象</span>
+    <h3>光的直线传播、小孔成像</h3>
+    <span class="card-date">7/7 周二</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/7 周二 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>光的直线传播</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>光路图 5 题；基础题 10 题。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=70&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card" data-key="7/8 周三" style="--card-bg: url('img/card-bg-blue-2.png')">
+  <div class="plan-card-hero">
+    <span class="tag">光现象</span>
+    <h3>光的反射定律</h3>
+    <span class="card-date">7/8 周三</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/8 周三 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>光的反射</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>反射画图题 8 题。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=76&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card" data-key="7/9 周四" style="--card-bg: url('img/card-bg-blue-2.png')">
+  <div class="plan-card-hero">
+    <span class="tag">光现象</span>
+    <h3>平面镜成像</h3>
+    <span class="card-date">7/9 周四</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/9 周四 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>平面镜成像</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>平面镜成像题 15 题。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=83&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card review" data-key="7/10 周五" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">光现象</span>
+    <h3>光现象综合</h3>
+    <span class="card-date">7/10 周五</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/10 周五 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>八上光学：对应回看</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>光现象单元练习 1 份。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=70&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card weekend review" data-key="7/11 周六" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">复盘</span>
+    <h3>声 + 光复盘</h3>
+    <span class="card-date">7/11 周六</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/11 周六 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>八上基础 / 八上光学</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>错题重做；不会的题标星。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=36&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card rest" data-key="7/12 周日" style="--card-bg: url('img/card-bg-green.png')">
+  <div class="plan-card-hero">
+    <span class="tag">休息</span>
+    <h3>家庭小实验</h3>
+    <span class="card-date">7/12 周日</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/12 周日 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>不看新视频</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>做镜子成像小实验。</div>
+    <button class="study-button" type="button">完成</button>
+  </div>
+</article>
+<article class="plan-card" data-key="7/13 周一" style="--card-bg: url('img/card-bg-blue-2.png')">
+  <div class="plan-card-hero">
+    <span class="tag">折射</span>
+    <h3>光的折射</h3>
+    <span class="card-date">7/13 周一</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/13 周一 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>光的折射</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>折射基础题 15 题。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=93&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card" data-key="7/14 周二" style="--card-bg: url('img/card-bg-blue-2.png')">
+  <div class="plan-card-hero">
+    <span class="tag">透镜</span>
+    <h3>凸透镜、凹透镜认识</h3>
+    <span class="card-date">7/14 周二</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/14 周二 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>认识透镜</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>透镜画图题 8 题。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=104&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card" data-key="7/15 周三" style="--card-bg: url('img/card-bg-blue-2.png')">
+  <div class="plan-card-hero">
+    <span class="tag">透镜</span>
+    <h3>凸透镜成像规律 1</h3>
+    <span class="card-date">7/15 周三</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/15 周三 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>成像规律</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>成像规律表格默写。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=115&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card" data-key="7/16 周四" style="--card-bg: url('img/card-bg-blue-2.png')">
+  <div class="plan-card-hero">
+    <span class="tag">透镜</span>
+    <h3>凸透镜成像规律 2</h3>
+    <span class="card-date">7/16 周四</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/16 周四 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>继续成像规律</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>成像判断题 15 题。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=117&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card" data-key="7/17 周五" style="--card-bg: url('img/card-bg-blue-2.png')">
+  <div class="plan-card-hero">
+    <span class="tag">透镜</span>
+    <h3>照相机、投影仪、放大镜</h3>
+    <span class="card-date">7/17 周五</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/17 周五 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>应用</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>应用题 10-15 题。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=111&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card weekend review" data-key="7/18 周六" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">透镜</span>
+    <h3>透镜单元复盘</h3>
+    <span class="card-date">7/18 周六</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/18 周六 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>错点</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>透镜单元卷 1 份。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=115&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card rest" data-key="7/19 周日" style="--card-bg: url('img/card-bg-green.png')">
+  <div class="plan-card-hero">
+    <span class="tag">休息</span>
+    <h3>轻复盘</h3>
+    <span class="card-date">7/19 周日</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/19 周日 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>不看新视频</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>错题看 10 分钟。</div>
+    <button class="study-button" type="button">完成</button>
+  </div>
+</article>
+<article class="plan-card review" data-key="7/20 周一" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">透镜</span>
+    <h3>透镜错题专项</h3>
+    <span class="card-date">7/20 周一</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/20 周一 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>按错题回看</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>重做 7/18 错题。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=115&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card" data-key="7/21 周二" style="--card-bg: url('img/card-bg-blue-2.png')">
+  <div class="plan-card-hero">
+    <span class="tag">物态变化</span>
+    <h3>温度、温度计</h3>
+    <span class="card-date">7/21 周二</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/21 周二 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>温度/温度计</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>温度计读数题 10 题。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=49&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card" data-key="7/22 周三" style="--card-bg: url('img/card-bg-blue-2.png')">
+  <div class="plan-card-hero">
+    <span class="tag">物态变化</span>
+    <h3>熔化和凝固</h3>
+    <span class="card-date">7/22 周三</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/22 周三 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>熔化和凝固</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>熔化图像题 8 题。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=56&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card" data-key="7/23 周四" style="--card-bg: url('img/card-bg-blue-2.png')">
+  <div class="plan-card-hero">
+    <span class="tag">物态变化</span>
+    <h3>汽化和液化</h3>
+    <span class="card-date">7/23 周四</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/23 周四 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>汽化和液化</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>实验题 10 题。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=61&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card" data-key="7/24 周五" style="--card-bg: url('img/card-bg-blue-2.png')">
+  <div class="plan-card-hero">
+    <span class="tag">物态变化</span>
+    <h3>升华和凝华</h3>
+    <span class="card-date">7/24 周五</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/24 周五 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>升华和凝华</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>物态变化判断题 15 题。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=67&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card weekend review" data-key="7/25 周六" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">物态变化</span>
+    <h3>单元复盘</h3>
+    <span class="card-date">7/25 周六</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/25 周六 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>八上基础：回看物态变化</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>物态变化单元卷 1 份。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=55&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card rest" data-key="7/26 周日" style="--card-bg: url('img/card-bg-green.png')">
+  <div class="plan-card-hero">
+    <span class="tag">休息</span>
+    <h3>家庭小实验</h3>
+    <span class="card-date">7/26 周日</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/26 周日 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>不看新视频</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>做冰融化/液化小实验。</div>
+    <button class="study-button" type="button">完成</button>
+  </div>
+</article>
+<article class="plan-card review" data-key="7/27 周一" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">物态变化</span>
+    <h3>错题专项</h3>
+    <span class="card-date">7/27 周一</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/27 周一 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>八上基础：按错题回看</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>物态变化错题重做。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=55&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card" data-key="7/28 周二" style="--card-bg: url('img/card-bg-blue-2.png')">
+  <div class="plan-card-hero">
+    <span class="tag">运动</span>
+    <h3>长度和时间测量</h3>
+    <span class="card-date">7/28 周二</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/28 周二 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>机械运动/测量</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>刻度尺读数题 15 题。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=2&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card" data-key="7/29 周三" style="--card-bg: url('img/card-bg-blue-2.png')">
+  <div class="plan-card-hero">
+    <span class="tag">运动</span>
+    <h3>运动和静止的相对性</h3>
+    <span class="card-date">7/29 周三</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/29 周三 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>运动的描述</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>基础题 10-15 题。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=14&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card" data-key="7/30 周四" style="--card-bg: url('img/card-bg-blue-2.png')">
+  <div class="plan-card-hero">
+    <span class="tag">运动</span>
+    <h3>速度公式</h3>
+    <span class="card-date">7/30 周四</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/30 周四 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>速度</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>速度计算题 10 题。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=18&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card" data-key="7/31 周五" style="--card-bg: url('img/card-bg-blue-2.png')">
+  <div class="plan-card-hero">
+    <span class="tag">运动</span>
+    <h3>平均速度</h3>
+    <span class="card-date">7/31 周五</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="7/31 周五 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>平均速度</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>平均速度 10 题；单位换算。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=23&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card weekend review" data-key="8/1 周六" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">专项</span>
+    <h3>单位换算专项</h3>
+    <span class="card-date">8/1 周六</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="8/1 周六 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>单位换算</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>m/s、km/h 换算专项；物体运动单元卷。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=4&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card rest" data-key="8/2 周日" style="--card-bg: url('img/card-bg-green.png')">
+  <div class="plan-card-hero">
+    <span class="tag">休息</span>
+    <h3>轻复盘</h3>
+    <span class="card-date">8/2 周日</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="8/2 周日 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>不看新视频</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>错题看 10 分钟。</div>
+    <button class="study-button" type="button">完成</button>
+  </div>
+</article>
+<article class="plan-card review" data-key="8/3 周一" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">二轮</span>
+    <h3>声现象二轮复习</h3>
+    <span class="card-date">8/3 周一</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="8/3 周一 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>八上基础：声现象回看</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>声现象单元错题。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=36&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card review" data-key="8/4 周二" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">二轮</span>
+    <h3>光现象二轮复习</h3>
+    <span class="card-date">8/4 周二</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="8/4 周二 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>八上光学：光现象回看</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>光路图专项。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=70&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card review" data-key="8/5 周三" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">二轮</span>
+    <h3>透镜二轮复习</h3>
+    <span class="card-date">8/5 周三</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="8/5 周三 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>凸透镜专题：回看</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>凸透镜成像专项。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=115&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card review" data-key="8/6 周四" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">二轮</span>
+    <h3>物态变化二轮复习</h3>
+    <span class="card-date">8/6 周四</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="8/6 周四 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>八上基础：物态变化回看</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>图像题专项。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=55&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card review" data-key="8/7 周五" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">二轮</span>
+    <h3>机械运动二轮复习</h3>
+    <span class="card-date">8/7 周五</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="8/7 周五 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>八上基础 + 单位换算</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>速度计算专项。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=18&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card weekend review" data-key="8/8 周六" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">综合</span>
+    <h3>八上综合卷 1</h3>
+    <span class="card-date">8/8 周六</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="8/8 周六 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>不看新视频</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>限时完成 + 批改。</div>
+    <button class="study-button" type="button">完成</button>
+  </div>
+</article>
+<article class="plan-card rest" data-key="8/9 周日" style="--card-bg: url('img/card-bg-green.png')">
+  <div class="plan-card-hero">
+    <span class="tag">休息</span>
+    <h3>综合卷讲评</h3>
+    <span class="card-date">8/9 周日</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="8/9 周日 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>按错题回看对应视频</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>整理综合卷错题。</div>
+    <button class="study-button" type="button">完成</button>
+  </div>
+</article>
+<article class="plan-card review" data-key="8/10 周一" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">提升</span>
+    <h3>声 + 光综合提升</h3>
+    <span class="card-date">8/10 周一</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="8/10 周一 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>八上光学</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>中档题 20 题。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=70&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card review" data-key="8/11 周二" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">提升</span>
+    <h3>透镜提升</h3>
+    <span class="card-date">8/11 周二</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="8/11 周二 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>凸透镜专题</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>中档题 15 题；提优 2 题。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=104&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card review" data-key="8/12 周三" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">提升</span>
+    <h3>物态变化提升</h3>
+    <span class="card-date">8/12 周三</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="8/12 周三 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>八上基础：物态变化</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>实验题、图像题专项。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=55&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card review" data-key="8/13 周四" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">提升</span>
+    <h3>运动计算提升</h3>
+    <span class="card-date">8/13 周四</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="8/13 周四 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>物理数学计算</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>计算题专项。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=21&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card review" data-key="8/14 周五" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">综合</span>
+    <h3>八上综合卷 2</h3>
+    <span class="card-date">8/14 周五</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="8/14 周五 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>不看新视频</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>限时完成。</div>
+    <button class="study-button" type="button">完成</button>
+  </div>
+</article>
+<article class="plan-card weekend review" data-key="8/15 周六" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">讲评</span>
+    <h3>综合卷 2 讲评</h3>
+    <span class="card-date">8/15 周六</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="8/15 周六 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>按错题回看对应视频</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>错题全部重做。</div>
+    <button class="study-button" type="button">完成</button>
+  </div>
+</article>
+<article class="plan-card rest" data-key="8/16 周日" style="--card-bg: url('img/card-bg-green.png')">
+  <div class="plan-card-hero">
+    <span class="tag">休息</span>
+    <h3>完全休息</h3>
+    <span class="card-date">8/16 周日</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="8/16 周日 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>不看新视频</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>不安排任务。</div>
+    <button class="study-button" type="button">完成</button>
+  </div>
+</article>
+<article class="plan-card review" data-key="8/17 周一" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">收束</span>
+    <h3>全册知识清单整理</h3>
+    <span class="card-date">8/17 周一</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="8/17 周一 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>初中物理总览</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>每章一张 A4 纸。</div>
+    <a class="study-button" href="https://www.bilibili.com/video/BV1qu411b7EY?p=1&t=1" target="_blank" rel="noopener noreferrer">去学习</a>
+  </div>
+</article>
+<article class="plan-card review" data-key="8/18 周二" style="--card-bg: url('img/card-bg-orange.png')">
+  <div class="plan-card-hero">
+    <span class="tag">检测</span>
+    <h3>开学前模拟检测</h3>
+    <span class="card-date">8/18 周二</span>
+    <label class="card-check"><input class="check-input" type="checkbox" aria-label="8/18 周二 完成打卡"></label>
+  </div>
+  <div class="plan-card-body">
+    <div class="video-block"><strong>不看新视频</strong><span>来源于：B站-于总视频</span></div>
+    <div class="task-block"><span>练习任务</span>做一套期初模拟卷；整理最后错题。</div>
+    <button class="study-button" type="button">完成</button>
+  </div>
+</article>
 </div>
 </section>
+<div class="goal-footer">
+<span class="footer-icon"><img src="img/principle-star.png" alt="坚持"/></span>
+<div><strong>坚持与目标</strong><p>每天按计划完成，重视错题和总结。49 天后你会发现：基础更扎实，做题更有思路，开学信心满满。</p></div>
+<div class="target-placeholder"><img class="target-image" src="img/goal-target.png" alt="目标"/></div>
+</div>
 </main>
 <script id="auto-fix-bilibili-links">
-  // 给 B 站分 P 链接补齐打开方式；每日计划已直接定位到合集具体集数。
+  const progressKey = 'summer-physics-plan-progress-v1';
+  const savedProgress = JSON.parse(localStorage.getItem(progressKey) || '{}');
+
+  document.querySelectorAll('.plan-card').forEach(function (card) {
+    const itemKey = card.dataset.key;
+    const checkbox = card.querySelector('.check-input');
+    if (checkbox && itemKey) {
+      checkbox.checked = Boolean(savedProgress[itemKey]);
+      card.classList.toggle('done', checkbox.checked);
+      checkbox.addEventListener('change', function () {
+        savedProgress[itemKey] = checkbox.checked;
+        if (!checkbox.checked) delete savedProgress[itemKey];
+        localStorage.setItem(progressKey, JSON.stringify(savedProgress));
+        card.classList.toggle('done', checkbox.checked);
+      });
+    }
+  });
+
   document.querySelectorAll('a[href*="bilibili.com/video/"]').forEach(function (link) {
     try {
       const url = new URL(link.href);
